@@ -1,19 +1,15 @@
 /**
  * ALKE WALLET - Sistema de Depósitos
  * deposit.js - Manejo de depósitos de dinero con jQuery
- * Desarrollado para el Bootcamp SENCE 2025
  */
 
 $(document).ready(function () {
   console.log("💰 Pantalla de Depósito Cargada - Alke Wallet");
 
-  // Verificar autenticación
   verificarAutenticacion();
 
-  // Mostrar saldo actual
   mostrarSaldoActual();
 
-  // Configurar eventos
   configurarEventos();
 
   /**
@@ -79,9 +75,8 @@ $(document).ready(function () {
     console.log("✅ Eventos configurados");
   }
 
-  /**
-   * Realizar depósito de dinero
-   */
+  // Realizar depósito de dinero
+
   function realizarDeposito() {
     const monto = parseFloat($("#montoDeposito").val());
 
