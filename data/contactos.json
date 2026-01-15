@@ -1,0 +1,37 @@
+[
+  {
+    "nombre": "Pedro",
+    "apellido": "Martínez",
+    "numeroCuenta": "12345678",
+    "alias": "Mi hermano",
+    "banco": "Banco de Chile"
+  },
+  {
+    "nombre": "Sofía",
+    "apellido": "López",
+    "numeroCuenta": "23456789",
+    "alias": "Mamá",
+    "banco": "Banco Estado"
+  },
+  {
+    "nombre": "Diego",
+    "apellido": "Ramírez",
+    "numeroCuenta": "34567890",
+    "alias": "Amigo del trabajo",
+    "banco": "Banco Santander"
+  },
+  {
+    "nombre": "Valentina",
+    "apellido": "Torres",
+    "numeroCuenta": "45678901",
+    "alias": "Prima Vale",
+    "banco": "BancoCredito e Inversiones"
+  },
+  {
+    "nombre": "Matías",
+    "apellido": "Flores",
+    "numeroCuenta": "56789012",
+    "alias": "Compañero universidad",
+    "banco": "Scotiabank"
+  }
+]
