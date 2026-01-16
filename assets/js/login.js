@@ -11,7 +11,7 @@ $(document).ready(function () {
 
   // Cargar usuarios desde el archivo JSON
   $.ajax({
-    url: "data/usuarios.json",
+    url: "assets/data/usuarios.json",
     method: "GET",
     dataType: "json",
     success: function (data) {

@@ -53,7 +53,7 @@ $(document).ready(function () {
       console.log("📥 Cargando contactos iniciales...");
 
       $.ajax({
-        url: "data/contactos.json",
+        url: "assets/data/contactos.json",
         method: "GET",
         dataType: "json",
         success: function (data) {

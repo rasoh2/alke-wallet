@@ -15,7 +15,7 @@
     />
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -58,140 +58,168 @@
 
     <!-- Contenido Principal -->
     <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-          <!-- Título -->
-          <div class="text-center mb-4">
-            <h2 class="fw-bold text-primary">💸 Enviar Dinero</h2>
-            <p class="text-muted">Transfiere a tus contactos de forma segura</p>
-          </div>
+      <!-- Título -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">💸 Enviar Dinero</h2>
+        <p class="text-muted">Transfiere a tus contactos de forma segura</p>
+      </div>
 
-          <!-- Tarjeta de Saldo Disponible -->
-          <div class="card shadow-sm border-0 rounded-4 mb-4 card-saldo-small">
+      <!-- Tarjeta de Saldo Disponible -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-lg-10">
+          <div class="card shadow-sm border-0 rounded-4 card-saldo-small">
             <div class="card-body text-center p-3">
               <small class="text-white-50">Saldo Disponible</small>
               <h4 class="fw-bold text-white mb-0" id="saldoDisponible">$0</h4>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- Contenedor de alertas -->
+      <!-- Contenedor de alertas -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
           <div id="alert-container"></div>
+        </div>
+      </div>
 
-          <!-- Formulario de Envío -->
-          <div class="card shadow-sm border-0 rounded-4 mb-3">
-            <div class="card-body p-4">
-              <!-- Búsqueda de Contactos -->
-              <div class="mb-4">
-                <label for="buscarContacto" class="form-label fw-semibold">
-                  🔍 Buscar Contacto
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="buscarContacto"
-                  placeholder="Busca por nombre, apellido o alias..."
-                />
-                <small class="form-text text-muted">
-                  Escribe para filtrar tus contactos
-                </small>
-              </div>
-
-              <!-- Formulario -->
-              <form id="sendMoneyForm">
-                <div class="mb-4">
-                  <label for="selectContacto" class="form-label fw-semibold">
-                    👤 Seleccionar Contacto
-                  </label>
-                  <select
-                    id="selectContacto"
-                    class="form-select form-select-lg"
-                    required
-                  >
-                    <option value="">-- Selecciona un destinatario --</option>
-                  </select>
-                </div>
-
-                <!-- Información del contacto seleccionado -->
-                <div
-                  id="infoContacto"
-                  class="alert alert-light mb-4"
-                  style="display: none"
-                >
-                  <h6 class="fw-bold mb-2">Datos del destinatario:</h6>
-                  <p class="mb-1">
-                    <strong>Nombre:</strong>
-                    <span id="infoNombre">-</span>
-                  </p>
-                  <p class="mb-1">
-                    <strong>Banco:</strong> <span id="infoBanco">-</span>
-                  </p>
-                  <p class="mb-0">
-                    <strong>Cuenta:</strong>
-                    <span id="infoCuenta">-</span>
-                  </p>
-                </div>
-
-                <div class="mb-4">
-                  <label for="montoEnviar" class="form-label fw-semibold">
-                    💰 Monto a enviar (CLP)
-                  </label>
-                  <div class="input-group input-group-lg">
-                    <span class="input-group-text">$</span>
+      <!-- Layout en dos columnas -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <div class="row g-4">
+            <!-- COLUMNA IZQUIERDA: Formulario de Envío -->
+            <div class="col-12 col-md-6">
+              <!-- Formulario de Envío -->
+              <div class="card shadow-sm border-0 rounded-4 mb-3">
+                <div class="card-body p-4">
+                  <!-- Búsqueda de Contactos -->
+                  <div class="mb-4">
+                    <label for="buscarContacto" class="form-label fw-semibold">
+                      🔍 Filtrar Contactos
+                    </label>
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
-                      id="montoEnviar"
-                      placeholder="Ingresa el monto"
-                      required
-                      min="1000"
-                      step="1000"
+                      id="buscarContacto"
+                      placeholder="Escribe para filtrar por nombre, apellido, alias o banco..."
                     />
+                    <small class="form-text text-muted">
+                      La lista de contactos se filtrará en tiempo real
+                    </small>
                   </div>
-                  <small class="form-text text-muted">
-                    Monto mínimo: $1.000 CLP
-                  </small>
+
+                  <!-- Formulario -->
+                  <form id="sendMoneyForm">
+                    <div class="mb-4">
+                      <label
+                        for="selectContacto"
+                        class="form-label fw-semibold"
+                      >
+                        👤 Seleccionar Contacto
+                      </label>
+                      <select
+                        id="selectContacto"
+                        class="form-select form-select-lg"
+                        required
+                      >
+                        <option value="">
+                          -- Selecciona un destinatario --
+                        </option>
+                      </select>
+                    </div>
+
+                    <!-- Información del contacto seleccionado -->
+                    <div
+                      id="infoContacto"
+                      class="alert alert-light mb-4"
+                      style="display: none"
+                    >
+                      <h6 class="fw-bold mb-2">Datos del destinatario:</h6>
+                      <p class="mb-1">
+                        <strong>Nombre:</strong>
+                        <span id="infoNombre">-</span>
+                      </p>
+                      <p class="mb-1">
+                        <strong>Banco:</strong> <span id="infoBanco">-</span>
+                      </p>
+                      <p class="mb-0">
+                        <strong>Cuenta:</strong>
+                        <span id="infoCuenta">-</span>
+                      </p>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="montoEnviar" class="form-label fw-semibold">
+                        💰 Monto a enviar (CLP)
+                      </label>
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="montoEnviar"
+                          placeholder="Ingresa el monto"
+                          required
+                          min="1000"
+                          step="1000"
+                        />
+                      </div>
+                      <small class="form-text text-muted">
+                        Monto mínimo: $1.000 CLP
+                      </small>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                      <button
+                        type="submit"
+                        class="btn btn-warning btn-lg fw-semibold"
+                        id="btnEnviarDinero"
+                      >
+                        💸 Enviar Transferencia
+                      </button>
+                    </div>
+                  </form>
                 </div>
-
-                <div class="d-grid gap-2">
-                  <button
-                    type="submit"
-                    class="btn btn-warning btn-lg fw-semibold"
-                    id="btnEnviarDinero"
-                  >
-                    💸 Enviar Transferencia
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <!-- Botón Agregar Contacto -->
-          <div class="d-grid gap-2 mb-3">
-            <button
-              type="button"
-              class="btn btn-outline-success"
-              id="btnNuevoContacto"
-            >
-              ➕ Agregar Nuevo Contacto
-            </button>
-            <a href="menu.html" class="btn btn-outline-secondary">
-              Volver al Menú
-            </a>
-          </div>
-
-          <!-- Lista de Contactos Guardados -->
-          <div class="card shadow-sm border-0 rounded-4">
-            <div class="card-body">
-              <h6 class="fw-bold mb-3">📋 Mis Contactos</h6>
-              <div id="listaContactos" class="list-group list-group-flush">
-                <!-- Se carga dinámicamente con jQuery -->
               </div>
+
+              <!-- Botones de acción -->
+              <div class="d-grid gap-2 mb-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-success"
+                  id="btnNuevoContacto"
+                >
+                  ➕ Agregar Nuevo Contacto
+                </button>
+                <a href="menu.html" class="btn btn-outline-secondary">
+                  Volver al Menú
+                </a>
+              </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: Lista de Contactos -->
+            <div class="col-12 col-md-6">
               <div
-                id="sinContactos"
-                class="text-center text-muted py-3"
-                style="display: none"
+                class="card shadow-sm border-0 rounded-4 sticky-top"
+                style="top: 20px"
               >
-                <p class="mb-0">No tienes contactos guardados aún</p>
+                <div class="card-body">
+                  <h6 class="fw-bold mb-3">📋 Mis Contactos</h6>
+                  <div
+                    id="listaContactos"
+                    class="list-group list-group-flush"
+                    style="max-height: 600px; overflow-y: auto"
+                  >
+                    <!-- Se carga dinámicamente con jQuery -->
+                  </div>
+                  <div
+                    id="sinContactos"
+                    class="text-center text-muted py-3"
+                    style="display: none"
+                  >
+                    <p class="mb-0">No tienes contactos guardados aún</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -321,9 +349,7 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
-      <p class="mb-0">
-        &copy; 2026 Alke Wallet Bootcamp SENCE
-      </p>
+      <p class="mb-0">&copy; 2026 Alke Wallet Bootcamp SENCE</p>
     </footer>
 
     <!-- Bootstrap Bundle JS -->
@@ -341,6 +367,6 @@
     ></script>
 
     <!-- Script de Envío de Dinero -->
-    <script src="js/sendMoney.js"></script>
+    <script src="assets/js/sendMoney.js"></script>
   </body>
 </html>
