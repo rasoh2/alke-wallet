@@ -10,39 +10,18 @@
 
 ---
 
-## 📦 Organización en Tandas (Git Workflow)
+## 📦 Organización en Pull Requests (Git Workflow)
 
-El proyecto fue desarrollado en **5 tandas organizadas** con commits independientes:
+El proyecto fue desarrollado en **5 Pull Requests organizados** con ramas feature independientes:
 
-### ✅ TANDA 1: Base + Login
+### ✅ PR #1: Menú Principal
 
-**Rama:** `main` (commit inicial)  
-**Archivos creados:**
-
-- `.gitignore` - Exclusión de archivos innecesarios
-- `README.md` - Documentación principal
-- `index.html` - Página de inicio de sesión
-- `css/styles.css` - Estilos personalizados con variables CSS
-- `js/login.js` - Lógica de autenticación
-- `data/usuarios.json` - Base de datos de usuarios
-
-**Funcionalidades:**
-
-- Sistema de login con validación de credenciales
-- 5 usuarios de prueba predefinidos
-- Redirección automática tras login exitoso
-- Mensajes de error en español
-
----
-
-### ✅ TANDA 2: Dashboard + Menú
-
-**Rama:** `tanda-2-menu-main`  
+**Rama:** `feature/menu`  
 **Archivos creados:**
 
 - `main.html` - Página de bienvenida con información del proyecto
 - `menu.html` - Dashboard principal con estadísticas
-- `js/menu.js` - Lógica del menú y visualización de datos
+- `assets/js/menu.js` - Lógica del menú y visualización de datos
 
 **Funcionalidades:**
 
@@ -54,13 +33,13 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 
 ---
 
-### ✅ TANDA 3: Sistema de Depósitos
+### ✅ PR #2: Sistema de Depósitos
 
-**Rama:** `tanda-3-depositos`  
+**Rama:** `feature/depositos`  
 **Archivos creados:**
 
 - `deposit.html` - Página de depósitos con formulario
-- `js/deposit.js` - Lógica de depósitos y validaciones
+- `assets/js/deposit.js` - Lógica de depósitos y validaciones
 
 **Funcionalidades:**
 
@@ -74,14 +53,14 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 
 ---
 
-### ✅ TANDA 4: Sistema de Transferencias
+### ✅ PR #3: Sistema de Transferencias
 
-**Rama:** `tanda-4-transferencias`  
+**Rama:** `feature/transferencias`  
 **Archivos creados:**
 
 - `sendMoney.html` - Página de transferencias con lista de contactos
-- `js/sendMoney.js` - Lógica de transferencias y gestión de contactos
-- `data/contactos.json` - Lista de 5 contactos predefinidos
+- `assets/js/sendMoney.js` - Lógica de transferencias y gestión de contactos
+- `assets/data/contactos.json` - Lista de contactos predefinidos
 
 **Funcionalidades:**
 
@@ -97,13 +76,13 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 
 ---
 
-### ✅ TANDA 5: Historial de Transacciones (FINAL)
+### ✅ PR #4: Historial de Transacciones
 
-**Rama:** `tanda-5-transacciones`  
+**Rama:** `feature/transacciones`  
 **Archivos creados:**
 
 - `transactions.html` - Página de historial con filtros
-- `js/transactions.js` - Lógica de visualización y filtrado
+- `assets/js/transactions.js` - Lógica de visualización y filtrado
 
 **Funcionalidades:**
 
@@ -125,6 +104,26 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 
 ---
 
+### ✅ PR #5: Filtrado de Contactos en Tiempo Real
+
+**Rama:** `feature/autocompletado`  
+**Archivos modificados:**
+
+- `sendMoney.html` - Diseño en dos columnas paralelas
+- `assets/js/sendMoney.js` - Filtrado instantáneo con selección clickeable
+- `assets/data/contactos.json` - 30 contactos de prueba
+
+**Funcionalidades:**
+
+- Filtrado instantáneo de lista de contactos al escribir
+- Click en contacto para autoselección
+- Diseño paralelo: formulario + lista de contactos
+- 30 contactos con nombres repetidos para testing
+- Animaciones suaves al filtrar
+- Búsqueda por nombre, apellido, alias y banco
+
+---
+
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
@@ -133,7 +132,14 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 - **CSS3:** Estilos avanzados con variables CSS, gradientes y animaciones
 - **Bootstrap 5.3.2:** Framework CSS para diseño responsive
 - **JavaScript ES6+:** Sintaxis moderna con arrow functions, template literals
-- **jQuery 3.7.1:** Manipulación del DOM y eventos
+- **jQuery 3.7.1:** Manipulación del DOM, eventos y AJAX
+
+### Arquitectura
+
+- **Carpeta assets/:** Organización profesional de recursos
+  - `assets/css/` - Estilos
+  - `assets/js/` - Scripts
+  - `assets/data/` - Datos JSON
 
 ### Persistencia de Datos
 
@@ -312,11 +318,13 @@ El proyecto fue desarrollado en **5 tandas organizadas** con commits independien
 
 ### Commits Realizados
 
-- TANDA 1: Commit inicial con base del proyecto
-- TANDA 2: Commit de dashboard y menú
-- TANDA 3: Commit de sistema de depósitos
-- TANDA 4: Commit de sistema de transferencias
-- TANDA 5: Commit de historial de transacciones
+- **Commit inicial:** Base del proyecto con login
+- **PR #1:** Feature: Menú Principal
+- **PR #2:** Feature: Sistema de Depósitos
+- **PR #3:** Feature: Sistema de Transferencias
+- **PR #4:** Feature: Historial de Transacciones
+- **PR #5:** Feature: Filtrado de Contactos en Tiempo Real
+- **Refactor:** Reorganización con carpeta assets/
 
 ---
 
@@ -432,9 +440,9 @@ Este proyecto es de código abierto y está disponible para fines educativos.
 
 ---
 
-**Fecha de Finalización:** 13 de Enero de 2026  
-**Versión:** 1.0.0  
-**Estado:** ✅ Proyecto Completado
+**Fecha de Finalización:** 16 de Enero de 2026  
+**Versión:** 2.0.0  
+**Estado:** ✅ Proyecto Completado con Mejoras
 
 ---
 
