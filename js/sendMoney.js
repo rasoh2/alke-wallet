@@ -145,13 +145,21 @@ $(document).ready(function () {
     $("#sinContactos").hide();
 
     contactos.forEach(function (contacto, index) {
+      // Crear texto de búsqueda con todos los campos
+      const textoBusqueda =
+        `${contacto.nombre} ${contacto.apellido} ${contacto.alias} ${contacto.banco}`.toLowerCase();
+      const nombreCompleto = `${contacto.nombre} ${contacto.apellido}`;
+
       const $item = $("<div></div>")
         .addClass(
-          "list-group-item d-flex justify-content-between align-items-center"
+          "list-group-item d-flex justify-content-between align-items-center contacto-item"
         )
+        .attr("data-busqueda", textoBusqueda)
+        .attr("data-nombre", nombreCompleto)
+        .css("cursor", "pointer")
         .html(
           `
-          <div>
+          <div class="contacto-info" style="flex: 1;">
             <strong>👤 ${contacto.nombre} ${contacto.apellido}</strong>
             <br>
             <small class="text-muted">
@@ -167,8 +175,17 @@ $(document).ready(function () {
       $lista.append($item);
     });
 
+    // Evento para seleccionar contacto (rellenar búsqueda)
+    $(".contacto-info").on("click", function () {
+      const $item = $(this).closest(".contacto-item");
+      const nombreContacto = $item.attr("data-nombre");
+      $("#buscarContacto").val(nombreContacto).trigger("input");
+      console.log("✅ Contacto seleccionado:", nombreContacto);
+    });
+
     // Evento para eliminar contactos
-    $(".btn-eliminar").on("click", function () {
+    $(".btn-eliminar").on("click", function (e) {
+      e.stopPropagation(); // Evitar que active el click del contacto
       const index = $(this).data("index");
       eliminarContacto(index);
     });
@@ -180,15 +197,31 @@ $(document).ready(function () {
    * Configurar eventos de la página
    */
   function configurarEventos() {
-    // Búsqueda en tiempo real
+    // Búsqueda en tiempo real - Filtrar lista visual
     $("#buscarContacto").on("input", function () {
-      const textoBusqueda = $(this).val();
-      console.log("🔍 Buscando:", textoBusqueda);
-      cargarContactos(textoBusqueda);
+      const textoBusqueda = $(this).val().toLowerCase().trim();
+      console.log("🔍 Filtrando contactos:", textoBusqueda);
 
-      // Ocultar información del contacto y botón al buscar
-      $("#infoContacto").slideUp(300);
-      $("#selectContacto").val("");
+      // Filtrar items de la lista
+      $(".contacto-item").each(function () {
+        const dataBusqueda = $(this).attr("data-busqueda");
+
+        if (dataBusqueda.includes(textoBusqueda)) {
+          $(this).slideDown(200);
+        } else {
+          $(this).slideUp(200);
+        }
+      });
+
+      // Si hay texto, también filtrar el select
+      if (textoBusqueda) {
+        cargarContactos(textoBusqueda);
+        $("#infoContacto").slideUp(300);
+        $("#selectContacto").val("");
+      } else {
+        // Si se borra el texto, recargar todos los contactos en el select
+        cargarContactos();
+      }
     });
 
     // Mostrar información al seleccionar contacto
