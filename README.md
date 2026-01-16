@@ -2,7 +2,7 @@
 
 **Billetera Digital - Proyecto Bootcamp SENCE 2025**
 
-🔗 **Repositorio:** [https://github.com/rasoh2/alke-wallet](https://github.com/rasoh2/alke-wallet)
+🔗 **Repositorio:** [https://github.com/rasoh2/alke-wallet]
 
 ## 📋 Descripción
 
@@ -46,17 +46,18 @@ alke-wallet/
 ├── deposit.html        # Página de depósitos
 ├── sendMoney.html      # Página de transferencias
 ├── transactions.html   # Historial de transacciones
-├── css/
-│   └── styles.css      # Estilos personalizados
-├── js/
-│   ├── login.js        # Lógica de autenticación
-│   ├── menu.js         # Lógica del menú
-│   ├── deposit.js      # Lógica de depósitos
-│   ├── sendMoney.js    # Lógica de transferencias
-│   └── transactions.js # Lógica de transacciones
-└── data/
-    ├── usuarios.json   # Base de datos de usuarios
-    └── contactos.json  # Contactos predefinidos
+└── assets/
+    ├── css/
+    │   └── styles.css      # Estilos personalizados
+    ├── js/
+    │   ├── login.js        # Lógica de autenticación
+    │   ├── menu.js         # Lógica del menú
+    │   ├── deposit.js      # Lógica de depósitos
+    │   ├── sendMoney.js    # Lógica de transferencias
+    │   └── transactions.js # Lógica de transacciones
+    └── data/
+        ├── usuarios.json   # Base de datos de usuarios
+        └── contactos.json  # Contactos predefinidos
 ```
 
 ## 👨‍💻 Autor
